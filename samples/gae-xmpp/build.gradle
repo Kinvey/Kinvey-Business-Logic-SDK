@@ -1,0 +1,65 @@
+// Include the GAE plug-in as a dependency
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'org.gradle.api.plugins:gradle-gae-plugin:0.8'
+    }
+}
+
+// This generates some warnings about gradle 2.0 compatibility
+apply plugin: 'gae'
+
+
+dependencies {
+    compile project(':kinvey-sdk')
+    compile 'javax.ws.rs:jsr311-api:1.1.1'
+    compile 'com.sun.jersey:jersey-server:1.17.1'
+    compile 'com.sun.jersey:jersey-core:1.17.1'
+    compile 'com.sun.jersey:jersey-servlet:1.17.1'
+    compile 'com.sun.jersey:jersey-json:1.17.1'
+    compile 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.2.1'
+
+    // FatJar ignores the providedCompile directive (however normal WAR exploder respects this)
+    // so we need to make sure it's excluded from the WAR
+    providedCompile 'com.google.appengine:appengine-api-1.0-sdk:1.8.0', {
+        ext {
+            fatJarExclude = true
+        }
+    }
+
+    providedCompile 'javax.servlet:servlet-api:2.5', {
+        ext {
+            fatJarExclude = true
+        }
+    }
+
+    gaeSdk 'com.google.appengine:appengine-java-sdk:1.8.0'
+
+}
+
+
+// GAE defaults
+gae {
+    httpPort = 8080
+    optimizeWar = true
+
+    // Include debugging port
+    jvmFlags = ['-Xdebug', '-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8000']
+
+    // NB: This is a HUGE download!
+    downloadSdk = true
+
+    appcfg {
+        email = 'your.email@here.com' // !!! TODO: Configure this prior to deploying
+        passIn = true
+
+        app {
+            id = 'your-app-id-here' // !!! TODO: Configure this prior to deploying
+        }
+    }
+}
+
+

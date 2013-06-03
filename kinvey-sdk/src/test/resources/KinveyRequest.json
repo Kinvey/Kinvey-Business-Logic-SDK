@@ -1,0 +1,13 @@
+{
+    "method": "GET",
+    "headers": {
+        "authorization": "Basic a2lkX1ZWMngyOHhIc006YWYyMDEyOWI0ZmE5NDY4MTllYTQwMzBjYTU0MGI1YWE=",
+        "x-kinvey-api-version": "1",
+        "host": "localhost:7007",
+        "connection": "keep-alive"
+    },
+    "body": {},
+    "params": {},
+    "username": "kid_VV2x28xHsM",
+    "collectionName": "SimpleTest"
+}

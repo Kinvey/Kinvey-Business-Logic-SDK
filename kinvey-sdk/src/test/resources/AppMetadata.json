@@ -1,0 +1,57 @@
+{
+    "appMetadata": {
+        "_id": "kid_VV2x28xHsM",
+        "name": "GAE External BL test",
+        "platform": "ios",
+        "url": null,
+        "prefs": {
+            "bf": "Myself"
+        },
+        "icon": null,
+        "appsecret": "897fe6c388ac4482bc1da8a4a8ef26bb",
+        "mastersecret": "af20129b4fa946819ea4030ca540b5aa",
+        "owner": "caa23c0712ec4fb5be9bd292487f046a",
+        "devUserIDs": [
+            "caa23c0712ec4fb5be9bd292487f046a"
+        ],
+        "creator": "caa23c0712ec4fb5be9bd292487f046a",
+        "collaborators": [],
+        "creation_time": "2013-05-14T21:53:02.007Z",
+        "billing": {
+            "payment_method_id": null
+        },
+        "API_version": 0,
+        "bl": {
+            "notification": {},
+            "ExternalBL": {
+                "code": "\n/** 8d6c7d20-1894-11e2-892e-0800200c9a66  onPostSave  8d6c7d20-1894-11e2-892e-0800200c9a66 **/\nfunction onPostSave(request, response, modules){\n\tresponse.complete(200);\n}\n/** 8d6c7d20-1894-11e2-892e-0800200c9a66  end  8d6c7d20-1894-11e2-892e-0800200c9a66 **/\n",
+                "hasOnPostSave": true,
+                "host": "https://k-internal-bl-demo.appspot.com"
+            },
+            "SimpleTest": {
+                "code": "\n/** 8d6c7d20-1894-11e2-892e-0800200c9a66  onPreFetch  8d6c7d20-1894-11e2-892e-0800200c9a66 **/\nfunction onPreFetch(request, response, modules){\n\tresponse.complete(200);\n}\n/** 8d6c7d20-1894-11e2-892e-0800200c9a66  end  8d6c7d20-1894-11e2-892e-0800200c9a66 **/\n",
+                "hasOnPreFetch": true,
+                "host": "https://k-internal-bl-demo.appspot.com",
+                "hasPre": true
+            }
+        },
+        "blobService": {},
+        "pushService": {
+            "hasAgreedToTOS": false,
+            "whenTOSAgreed": null,
+            "serviceMetadata": {}
+        },
+        "dataIntegration": {
+            "ExternalBL": {
+                "isVirtualCollection": false
+            },
+            "SimpleTest": {
+                "isVirtualCollection": false
+            }
+        },
+        "acl": {
+            "ExternalBL": "append-read",
+            "SimpleTest": "append-read"
+        }
+    }
+}

@@ -9,8 +9,40 @@ subprojects {
     }
 
     dependencies {
+        compile group:'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.2.1'
+        compile group:'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.2.1'
+        compile group:'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.2.1'
+        compile 'commons-io:commons-io:2.4'
+
         testCompile 'junit:junit:4.11'
     }
 
-    version = '1.0'
+    group = 'com.kinvey'
+    version = '0.1-SNAPSHOT'
+
+    // Checkstyle
+    apply plugin: 'checkstyle'
+    checkstyle {
+        ignoreFailures = true
+        configFile = rootProject.file('codequality/checkstyle.xml')
+    }
+
+    // FindBugs
+    apply plugin: 'findbugs'
+    findbugs {
+        ignoreFailures = true
+    }
+
+    // PMD
+    apply plugin: 'pmd'
+    //tasks.withType(Pmd) { reports.html.enabled true }
+
+//    apply plugin: 'cobertura'
+//    cobertura {
+//        sourceDirs = sourceSets.main.java.srcDirs
+//        format = 'html'
+//        includes = ['**/*.java', '**/*.groovy']
+//        excludes = []
+//    }
+
 }

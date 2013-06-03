@@ -1,0 +1,11 @@
+{
+    "response": {
+        "status": 200,
+        "headers": {
+            "x-powered-by": "Express",
+            "x-kinvey-request-id": "58f7f0a87a464ba39fbb29585f177079",
+            "x-kinvey-api-version": 1
+        },
+        "body": {}
+    }
+}

@@ -1,0 +1,19 @@
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+
+dependencies {
+    compile project(':kinvey-sdk')
+    compile 'javax.ws.rs:jsr311-api:1.1.1'
+    compile 'com.sun.jersey:jersey-server:1.17.1'
+    compile 'com.sun.jersey:jersey-core:1.17.1'
+    compile 'com.sun.jersey:jersey-servlet:1.17.1'
+    compile 'com.sun.jersey:jersey-json:1.17.1'
+    compile 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.2.1'
+    providedCompile 'javax.servlet:servlet-api:2.5'
+}
+
+httpPort = 8080
+
+war {
+}

@@ -55,6 +55,10 @@ public class KinveyResponse {
         this.body = body;
     }
 
+    public void setBody(KinveyError error) {
+        this.body = error.getErrorBody();
+    }
+
     public int getStatusCode() {
         return statusCode;
     }

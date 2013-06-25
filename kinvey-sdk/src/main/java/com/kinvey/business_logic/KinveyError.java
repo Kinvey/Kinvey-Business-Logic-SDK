@@ -60,16 +60,18 @@ public class KinveyError {
             return debug;
         }
 
-        public void setDebug(String debug) {
+        public Builder setDebug(String debug) {
             this.debug = debug;
+            return this;
         }
 
         public Exception getException() {
             return exception;
         }
 
-        public void setException(Exception exception) {
+        public Builder setException(Exception exception) {
             this.exception = exception;
+            return this;
         }
     }
 

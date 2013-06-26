@@ -11,28 +11,35 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.kinvey.business_logic;
+package com.kinvey.business_logic.providers;
 
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
+import com.kinvey.business_logic.CommandResponse;
+import com.kinvey.business_logic.KinveyError;
+import com.kinvey.business_logic.KinveyResponse;
+
 /**
  * @author mjsalinger
  * @since 2.0
  */
-//@Provider
+@Provider
 public class KinveyExceptionMapper implements ExceptionMapper<Exception> {
     public Response toResponse(Exception exception){
+
 
         KinveyResponse kinveyRes = new KinveyResponse(400, false);
         kinveyRes.setError(new KinveyError.Builder().setException(exception).build());
 
+        CommandResponse commandRes = new CommandResponse();
+        commandRes.setResponse(kinveyRes);
 
         return Response.status(Response.Status.BAD_REQUEST)
                 .type(MediaType.APPLICATION_JSON)
-                .entity(kinveyRes)
+                .entity(commandRes)
                 .build();
 
     }

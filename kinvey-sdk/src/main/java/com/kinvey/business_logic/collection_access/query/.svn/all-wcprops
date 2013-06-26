@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/kinvey/!svn/ver/6355/java-library/trunk/java-api-core/src/com/kinvey/java/query
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/kinvey/!svn/ver/5805/java-library/trunk/java-api-core/src/com/kinvey/java/query/package-info.java
+END
+AbstractQuery.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/kinvey/!svn/ver/6355/java-library/trunk/java-api-core/src/com/kinvey/java/query/AbstractQuery.java
+END
+MongoQueryFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/kinvey/!svn/ver/6355/java-library/trunk/java-api-core/src/com/kinvey/java/query/MongoQueryFilter.java
+END
+QueryFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/kinvey/!svn/ver/5939/java-library/trunk/java-api-core/src/com/kinvey/java/query/QueryFilter.java
+END

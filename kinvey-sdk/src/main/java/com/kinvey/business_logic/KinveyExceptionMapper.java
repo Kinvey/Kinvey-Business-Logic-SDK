@@ -13,6 +13,7 @@
  */
 package com.kinvey.business_logic;
 
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
@@ -21,12 +22,18 @@ import javax.ws.rs.ext.Provider;
  * @author mjsalinger
  * @since 2.0
  */
-@Provider
+//@Provider
 public class KinveyExceptionMapper implements ExceptionMapper<Exception> {
     public Response toResponse(Exception exception){
 
+        KinveyResponse kinveyRes = new KinveyResponse(400, false);
+        kinveyRes.setError(new KinveyError.Builder().setException(exception).build());
+
+
         return Response.status(Response.Status.BAD_REQUEST)
-                .entity(new KinveyError.Builder().setException(exception).build())
+                .type(MediaType.APPLICATION_JSON)
+                .entity(kinveyRes)
                 .build();
+
     }
 }

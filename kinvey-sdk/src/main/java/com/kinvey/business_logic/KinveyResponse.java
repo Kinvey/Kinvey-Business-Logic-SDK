@@ -14,6 +14,7 @@ public class KinveyResponse {
     private boolean complete;
     private HashMap<String, Object> headers;
     private HashMap<String, Object> body;
+    private HashMap<String, Object> error;
     private int statusCode;
     private int status;
 
@@ -57,8 +58,12 @@ public class KinveyResponse {
 
     public void setError(KinveyError error) {
         this.statusCode = error.getErrorCode();
-        this.body = error.getErrorBody();
+        this.error = error.getErrorBody();
         this.setComplete(true);
+    }
+
+    public HashMap<String, Object> getError() {
+        return error;
     }
 
     public int getStatusCode() {

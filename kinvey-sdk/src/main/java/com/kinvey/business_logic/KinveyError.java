@@ -11,6 +11,9 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
+/**
+ * An "Internal" Kinvey Error Object
+ */
 package com.kinvey.business_logic;
 
 import java.util.HashMap;
@@ -22,6 +25,7 @@ import java.util.HashMap;
 public class KinveyError {
 
     private static final String KINVEY_USER_ERROR = "UserError";
+    private static final String KINVEY_ERROR_MESSAGE = "Runtime Exception";
     private HashMap<String, Object> errorBody = new HashMap<String, Object>();
     private int code;
 
@@ -29,6 +33,7 @@ public class KinveyError {
     public KinveyError(int code, String error, String description, String debug, Exception ex) {
         errorBody.put("error", error);
         errorBody.put("description", description);
+        errorBody.put("message", KINVEY_ERROR_MESSAGE);
         String debugMsg = new StringBuilder()
                 .append(ex != null ? ex.getClass().getSimpleName() : KINVEY_USER_ERROR)
                 .append(": ")

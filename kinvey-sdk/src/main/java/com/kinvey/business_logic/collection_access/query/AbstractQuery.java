@@ -86,22 +86,6 @@ public abstract class AbstractQuery implements Serializable{
         return jsonResult;
     }
 
-    /**
-     * Adds a sort  sort condition to the Query
-     *
-     * @param field Field to sort on
-     * @param order Order to sort values (Ascending/Descending)
-     * @return  Query object
-     */
-    public AbstractQuery addSort(String field, SortOrder order) {
-        Preconditions.checkNotNull(field);
-        if (order == null) {
-            order = SortOrder.ASC;
-        }
-        sort.put(field,order);
-        return this;
-    }
-
     // Abstract Methods
     public abstract AbstractQuery equals(String key, Object value);
     public abstract AbstractQuery greaterThan(String key, Object value);
@@ -119,7 +103,6 @@ public abstract class AbstractQuery implements Serializable{
     public abstract AbstractQuery and(AbstractQuery query);
     public abstract AbstractQuery or(AbstractQuery query);
     public abstract AbstractQuery not();
-    public abstract String getSortString();
     public abstract AbstractQuery nearSphere(String field, double lat, double lon);
     public abstract AbstractQuery nearSphere(String field, double lat, double lon, double maxDistance);
     public abstract AbstractQuery withinBox(String field, double pointOneLat, double pointOneLon,

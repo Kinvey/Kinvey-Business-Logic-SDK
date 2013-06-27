@@ -1,9 +1,9 @@
 package com.kinvey.business_logic.collection_access;
 
-import com.kinvey.business_logic.collection_access.query.ArgumentType;
-
 import java.util.HashMap;
 import java.util.List;
+
+import static com.kinvey.business_logic.collection_access.ArgumentType.*;
 
 /***
  * Kinvey MongoDB collection interface.
@@ -37,8 +37,8 @@ public class Collection {
      */
     public List<Document> find(Query query, Options options) throws CollectionAccessException {
     MongoRequest mongoRequest = MongoRequest.performOperationOnCollection(CollectionOperation.FIND, this)
-                .setArgument(ArgumentType.QUERY, query)
-                .setArgument(ArgumentType.OPTIONS, options);
+                .setArgument(QUERY, query)
+                .setArgument(OPTIONS, options);
         List<HashMap<String, Object>> results = mongoRequest.getList();
         return Document.makeDocumentList(results);
     }
@@ -52,8 +52,8 @@ public class Collection {
      */
     public Document findOne(Query query, Options options) throws CollectionAccessException {
         MongoRequest mongoRequest = MongoRequest.performOperationOnCollection(CollectionOperation.FIND_ONE, this)
-            .setArgument(ArgumentType.QUERY, query)
-            .setArgument(ArgumentType.OPTIONS, options);
+            .setArgument(QUERY, query)
+            .setArgument(OPTIONS, options);
         return new Document(mongoRequest.getOne());
     }
 
@@ -68,10 +68,10 @@ public class Collection {
      */
     public int findAndModify(Query query, SortOrder sortOrder, Document document, Options options) throws CollectionAccessException {
         MongoRequest mongoRequest = MongoRequest.performOperationOnCollection(CollectionOperation.FIND_AND_MODIFY, this)
-            .setArgument(ArgumentType.QUERY, query)
-            .setArgument(ArgumentType.SORT_ORDER, sortOrder)
-            .setArgument(ArgumentType.DOCUMENT, document)
-            .setArgument(ArgumentType.OPTIONS, options);
+            .setArgument(QUERY, query)
+            .setArgument(SORT_ORDER, sortOrder)
+            .setArgument(DOCUMENT, document)
+            .setArgument(OPTIONS, options);
         return mongoRequest.getCount();
     }
 
@@ -85,9 +85,9 @@ public class Collection {
      */
     public int findAndRemove(Query query, SortOrder sortOrder, Options options) throws CollectionAccessException {
         MongoRequest mongoRequest = MongoRequest.performOperationOnCollection(CollectionOperation.FIND_AND_REMOVE, this)
-            .setArgument(ArgumentType.QUERY, query)
-            .setArgument(ArgumentType.SORT_ORDER, sortOrder)
-            .setArgument(ArgumentType.OPTIONS, options);
+            .setArgument(QUERY, query)
+            .setArgument(SORT_ORDER, sortOrder)
+            .setArgument(OPTIONS, options);
         return mongoRequest.getCount();
     }
 
@@ -99,8 +99,8 @@ public class Collection {
      */
     public void insert(Document document, Options options) throws CollectionAccessException {
         MongoRequest mongoRequest = MongoRequest.performOperationOnCollection(CollectionOperation.INSERT, this)
-            .setArgument(ArgumentType.DOCUMENT, document)
-            .setArgument(ArgumentType.OPTIONS, options);
+            .setArgument(DOCUMENT, document)
+            .setArgument(OPTIONS, options);
         mongoRequest.execute();
     }
 
@@ -112,8 +112,8 @@ public class Collection {
      */
     public int remove(Query query, Options options) throws CollectionAccessException {
         MongoRequest mongoRequest = MongoRequest.performOperationOnCollection(CollectionOperation.REMOVE, this)
-            .setArgument(ArgumentType.QUERY, query)
-            .setArgument(ArgumentType.OPTIONS, options);
+            .setArgument(QUERY, query)
+            .setArgument(OPTIONS, options);
         return mongoRequest.getCount();
     }
 
@@ -124,8 +124,8 @@ public class Collection {
      */
     public void save(Document document, Options options) throws CollectionAccessException {
         MongoRequest mongoRequest = MongoRequest.performOperationOnCollection(CollectionOperation.SAVE, this)
-            .setArgument(ArgumentType.DOCUMENT, document)
-            .setArgument(ArgumentType.OPTIONS, options);
+            .setArgument(DOCUMENT, document)
+            .setArgument(OPTIONS, options);
         mongoRequest.execute();
     }
 
@@ -138,8 +138,8 @@ public class Collection {
      */
     public List<Object> distinct(String key, Query query) throws CollectionAccessException {
         MongoRequest mongoRequest = MongoRequest.performOperationOnCollection(CollectionOperation.DISTINCT, this)
-            .setArgument(ArgumentType.KEY, key)
-            .setArgument(ArgumentType.QUERY, query);
+            .setArgument(KEY, key)
+            .setArgument(QUERY, query);
         return mongoRequest.getObjectList();
     }
 
@@ -152,9 +152,9 @@ public class Collection {
      */
     public void update(Query query, Document document, Options options) throws CollectionAccessException {
         MongoRequest mongoRequest = MongoRequest.performOperationOnCollection(CollectionOperation.UPDATE, this)
-            .setArgument(ArgumentType.QUERY, query)
-            .setArgument(ArgumentType.DOCUMENT, document)
-            .setArgument(ArgumentType.OPTIONS, options);
+            .setArgument(QUERY, query)
+            .setArgument(DOCUMENT, document)
+            .setArgument(OPTIONS, options);
         mongoRequest.execute();
     }
 
@@ -166,7 +166,7 @@ public class Collection {
      */
     public int count(Query query) throws CollectionAccessException {
         MongoRequest mongoRequest = MongoRequest.performOperationOnCollection(CollectionOperation.COUNT, this)
-            .setArgument(ArgumentType.QUERY, query);
+            .setArgument(QUERY, query);
         return mongoRequest.getCount();
     }
 
@@ -180,9 +180,9 @@ public class Collection {
      */
     public List<Document> geoNear(double x, double y, Options options) throws CollectionAccessException {
         MongoRequest mongoRequest = MongoRequest.performOperationOnCollection(CollectionOperation.GEO_NEAR, this)
-            .setArgument(ArgumentType.LONGITUDE, x)
-            .setArgument(ArgumentType.LATITUDE, y)
-            .setArgument(ArgumentType.OPTIONS, options);
+            .setArgument(LONGITUDE, x)
+            .setArgument(LATITUDE, y)
+            .setArgument(OPTIONS, options);
         List<HashMap<String, Object>> results = mongoRequest.getList();
         return Document.makeDocumentList(results);
     }

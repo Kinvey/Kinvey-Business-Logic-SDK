@@ -1,4 +1,4 @@
-package com.kinvey.business_logic.collection_access.query;
+package com.kinvey.business_logic.collection_access;
 
 public enum ArgumentType {
     QUERY("query"),

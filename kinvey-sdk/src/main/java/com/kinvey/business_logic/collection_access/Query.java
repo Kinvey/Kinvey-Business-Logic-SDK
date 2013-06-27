@@ -31,9 +31,6 @@ public class Query extends AbstractQuery implements Serializable {
 
     private static final long serialVersionUID = 5635939847038496849L;
 
-    private int limit;
-    private int skip;
-
     /**
      * Constructor for Query API.  Used to instantiate a query request.
      *
@@ -263,63 +260,7 @@ public class Query extends AbstractQuery implements Serializable {
         return this;
     }
 
-    /**
-     * Sets the maximum number of records to return
-     *
-     * @param limit The maximum number of records to return
-     * @return Query
-     */
-    public Query setLimit(int limit) {
 
-        this.limit=limit;
-        return this;
-    }
-
-    /**
-     *
-     * @return Current limit
-     */
-    public int getLimit() {
-        return this.limit;
-    }
-
-    /**
-     * @return current sort string
-     */
-    public String getSortString() {
-        StringBuilder sortStringBuilder = new StringBuilder();
-        if (sort.size() > 0) {
-            sortStringBuilder.append("{");
-            for (String field : sort.keySet()) {
-                sortStringBuilder.append("\"");
-                sortStringBuilder.append(field);
-                sortStringBuilder.append("\" : ");
-                sortStringBuilder.append(sort.get(field) == SortOrder.ASC ? 1 : -1);
-                sortStringBuilder.append(",");
-            }
-            sortStringBuilder.deleteCharAt(sortStringBuilder.length()-1);
-            sortStringBuilder.append("}");
-        }
-        return sortStringBuilder.toString();
-    }
-
-    /**
-     * Sets the number of records to skip before returning the results (useful for pagination).
-     *
-     * @return  Query object
-     */
-    public Query setSkip(int skip) {
-
-        this.skip=skip;
-        return this;
-    }
-
-    /**
-     * @return Current skip setting
-     */
-    public int getSkip() {
-        return this.skip;
-    }
 
     // Geolocation Queries
 

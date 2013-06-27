@@ -2,29 +2,52 @@ package com.kinvey.business_logic.collection_access;
 
 import com.google.api.client.http.*;
 import com.google.api.client.http.javanet.NetHttpTransport;
+import com.google.api.client.http.json.JsonHttpContent;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.JsonObjectParser;
 import com.google.api.client.json.jackson2.JacksonFactory;
-import com.kinvey.business_logic.collection_access.query.ArgumentType;
+import com.google.api.client.util.Base64;
+import com.kinvey.business_logic.KinveyAuthCredentials;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class MongoRequest {
 
-    static HttpTransport HTTP_TRANSPORT = new NetHttpTransport();
-    static JsonFactory JSON_FACTORY = new JacksonFactory();
+    private static HttpTransport HTTP_TRANSPORT = new NetHttpTransport();
+    private static JsonFactory JSON_FACTORY = new JacksonFactory();
 
-    public static MongoRequest performOperationOnCollection(CollectionOperation operation, Collection collection){
-        return new MongoRequest(collection, operation);
+    private CollectionOperation collectionOperation;
+    private Collection collection;
+    private String protocol;
+    private String baseUrl;
+    private HashMap<String, Object> content;
+
+    public static MongoRequest performOperationOnCollection(CollectionOperation op, Collection collection){
+        return new MongoRequest(collection, op);
     }
 
-    public MongoRequest(Collection collection, CollectionOperation op) {
+    public static MongoRequest performOperationOnCollection(String protocol, String baseUrl, CollectionOperation operation, Collection collection){
+        return new MongoRequest(protocol, baseUrl, collection, operation);
+    }
 
+
+    public MongoRequest(Collection collection, CollectionOperation op) {
+        this.protocol = "https";
+        this.baseUrl = "mongo.kinvey.com";
+        this.collection = collection;
+        this.collectionOperation = op;
+        this.content = new HashMap<String, Object>();
+    }
+
+    public MongoRequest(String protocol, String baseUrl, Collection collection, CollectionOperation collectionOperation){
+        this.protocol = protocol;
+        this.baseUrl = baseUrl;
+        this.collection = collection;
+        this.collectionOperation = collectionOperation;
+        this.content = new HashMap<String, Object>();
     }
 
     /***
@@ -35,12 +58,23 @@ public class MongoRequest {
      * @param transport
      * @param jsonFactory
      */
-    public MongoRequest(Collection collection, CollectionOperation op, HttpTransport transport, JsonFactory jsonFactory){
+    public MongoRequest(Collection collection, CollectionOperation op, String protocol, String baseUrl, HttpTransport transport, JsonFactory jsonFactory){
+        this.collection = collection;
+        this.collectionOperation = collectionOperation;
+        this.protocol = protocol;
+        this.baseUrl = baseUrl;
         HTTP_TRANSPORT = transport;
         JSON_FACTORY = jsonFactory;
+        this.content = new HashMap<String, Object>();
     }
 
     public MongoRequest setArgument(ArgumentType argumentType, Object argument) {
+
+        if (argumentType == ArgumentType.QUERY){
+            Query q = (Query)argument;
+            argument = q.getQueryFilterJson(JSON_FACTORY);
+        }
+        this.content.put(argumentType.getArgumentType(), argument);
         return this;
     }
 
@@ -54,9 +88,21 @@ public class MongoRequest {
                             request.setParser(new JsonObjectParser(JSON_FACTORY));
                         }
                     });
-            MongoUrl url = new MongoUrl("Hi");// PlusUrl.listPublicActivities(USER_ID).setMaxResults(MAX_RESULTS);
-            url.put("fields", "items(id,url,object(content,plusoners/totalItems))");
-            HttpRequest request = requestFactory.buildGetRequest(url);
+            MongoUrl url = new MongoUrl(this.protocol,
+                    this.baseUrl,
+                    this.collection.collectionName,
+                    this.collectionOperation.getEndPoint());
+
+            JsonHttpContent postContent = new JsonHttpContent(JSON_FACTORY, this.content);
+            HttpRequest request = requestFactory.buildPostRequest(url, postContent);
+
+            // Set the auth headers
+            KinveyAuthCredentials authCredentials = KinveyAuthCredentials.getInstance();
+            String userAndPassword = authCredentials.getAppId() + ":" + authCredentials.getMasterSecret();
+            HttpHeaders headers = request.getHeaders();
+            headers.put("Authorization", "Basic " + Base64.encodeBase64String(userAndPassword.getBytes()));
+            request.setHeaders(headers);
+
             return request.execute();
         } catch (IOException e){
             throw new CollectionAccessException(e);
@@ -68,22 +114,21 @@ public class MongoRequest {
     private static final ArrayList<Object> LIST_OBJECT = new ArrayList<Object>();
     private static final HashMap<String, Object> MAP_OBJECT = new HashMap<String, Object>();
 
-
     @SuppressWarnings("unchecked")
-    public List<Map<String, Object>> getList() throws CollectionAccessException {
+    public ArrayList<HashMap<String, Object>> getList() throws CollectionAccessException {
         try {
             HttpResponse response = makeRequest();
-            return (List<Map<String, Object>>)response.parseAs(LIST_MAP_OBJECT.getClass());
+            return (ArrayList<HashMap<String, Object>>)response.parseAs(LIST_MAP_OBJECT.getClass());
         } catch (IOException e){
             throw new CollectionAccessException(e);
         }
     }
 
     @SuppressWarnings("unchecked")
-    public List<Object> getObjectList() throws CollectionAccessException {
+    public ArrayList<Object> getObjectList() throws CollectionAccessException {
         try {
             HttpResponse response = makeRequest();
-            return (List<Object>)response.parseAs(LIST_OBJECT.getClass());
+            return (ArrayList<Object>)response.parseAs(LIST_OBJECT.getClass());
         } catch (IOException e){
             throw new CollectionAccessException(e);
         }
@@ -91,16 +136,15 @@ public class MongoRequest {
 
 
     @SuppressWarnings("unchecked")
-    public Map<String, Object> getOne() throws CollectionAccessException {
+    public HashMap<String, Object> getOne() throws CollectionAccessException {
         try {
             HttpResponse response = makeRequest();
-            return (Map<String, Object>)response.parseAs(LIST_OBJECT.getClass());
+            return (HashMap<String, Object>)response.parseAs(MAP_OBJECT.getClass());
         } catch (IOException e){
             throw new CollectionAccessException(e);
         }
     }
 
-    @SuppressWarnings("unchecked")
     public void execute() throws CollectionAccessException {
         try {
             HttpResponse response = makeRequest();
@@ -110,11 +154,10 @@ public class MongoRequest {
         }
     }
 
-    @SuppressWarnings("unchecked")
     public int getCount() throws CollectionAccessException {
         try {
             HttpResponse response = makeRequest();
-            return response.parseAs(Integer.class).intValue();
+            return response.parseAs(Integer.class);
         } catch (IOException e){
             throw new CollectionAccessException(e);
         }

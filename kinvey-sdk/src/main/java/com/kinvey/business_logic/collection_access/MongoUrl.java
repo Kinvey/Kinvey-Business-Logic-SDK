@@ -5,24 +5,9 @@ import com.google.api.client.util.Key;
 
 public class MongoUrl extends GenericUrl {
 
-    private final static String DEFAULT_ROOT_URL = "https://mongo.kinvey.com/";
-
-    private String endpoint;
-    private String rootUrl;
-
-    public MongoUrl(String encodedUrl){
-        super(encodedUrl);
+    public MongoUrl(String protocol, String baseUrl, String collection, String endpoint){
+        super();
+        String encodedUrl = protocol + "://" + baseUrl + "/" + collection + "/" + endpoint;
+        this.setRawPath(encodedUrl);
     }
-
-//    public PlusUrl setMaxResults(int maxResults) {
-//        this.maxResults = maxResults;
-//        return this;
-//    }
-
-    public static MongoUrl listBlah(String userId) {
-        return new MongoUrl("https://");
-//        return new PlusUrl(
-//                "https://www.googleapis.com/plus/v1/people/" + userId + "/activities/public");
-    }
-
 }

@@ -12,6 +12,19 @@ public class CommandResponse {
     private KinveyRequest request;
     private KinveyResponse response;
 
+    private CommandResponse(KinveyRequest req, KinveyResponse res) {
+        request = req == null ? KinveyRequest.initialize() : req;
+        response = res  == null ? KinveyResponse.initialize() : res;
+    }
+
+    public static CommandResponse initialize() {
+        return new CommandResponse(null, null);
+    }
+
+    public static CommandResponse initialize(KinveyRequest req, KinveyResponse res) {
+        return new CommandResponse(req, res);
+    }
+
     /**
      * Get the {@link KinveyRequest} that will be returned to Kinvey.
      *
@@ -26,8 +39,9 @@ public class CommandResponse {
      *
      * @param request  the request that should be sent to Kinvey.
      */
-    public void setRequest(KinveyRequest request) {
+    public CommandResponse setRequest(KinveyRequest request) {
         this.request = request;
+        return this;
     }
 
     /**
@@ -44,8 +58,9 @@ public class CommandResponse {
      *
      * @param response  the response that should be sent to Kinvey.
      */
-    public void setResponse(KinveyResponse response) {
+    public CommandResponse setResponse(KinveyResponse response) {
         this.response = response;
+        return this;
     }
 
     /**

@@ -73,12 +73,12 @@ public class KinveyError {
             return new KinveyError(code, error, description, debug, exception);
         }
 
-        public String getDebug() {
+        public String getMessage() {
             return debug;
         }
 
-        public Builder setDebug(String debug) {
-            this.debug = debug;
+        public Builder setMessage(String message) {
+            this.debug = message;
             return this;
         }
 

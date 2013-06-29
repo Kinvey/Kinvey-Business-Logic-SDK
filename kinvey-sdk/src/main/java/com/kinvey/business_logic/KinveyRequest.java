@@ -14,60 +14,73 @@ public class KinveyRequest {
     private HashMap<String, Object> body;
     private HashMap<String, Object> params;
 
+    private KinveyRequest() {}
+
+    static KinveyRequest initialize() {
+        return new KinveyRequest();
+    }
+
     public HashMap<String, Object> getParams() {
         return params;
     }
 
-    public void setParams(HashMap<String, Object> params) {
+    public KinveyRequest setParams(HashMap<String, Object> params) {
         this.params = params;
+        return this;
     }
 
     public String getMethod() {
         return method;
     }
 
-    public void setMethod(String method) {
+    public KinveyRequest setMethod(String method) {
         this.method = method;
+        return this;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
+    public KinveyRequest setUsername(String username) {
         this.username = username;
+        return this;
     }
 
     public String getEntityId() {
         return entityId;
     }
 
-    public void setEntityId(String entityId) {
+    public KinveyRequest setEntityId(String entityId) {
         this.entityId = entityId;
+        return this;
     }
 
     public String getCollectionName() {
         return collectionName;
     }
 
-    public void setCollectionName(String collectionName) {
+    public KinveyRequest setCollectionName(String collectionName) {
         this.collectionName = collectionName;
+        return this;
     }
 
     public HashMap<String, Object> getHeaders() {
         return headers;
     }
 
-    public void setHeaders(HashMap<String, Object> headers) {
+    public KinveyRequest setHeaders(HashMap<String, Object> headers) {
         this.headers = headers;
+        return this;
     }
 
     public HashMap<String, Object> getBody() {
         return body;
     }
 
-    public void setBody(HashMap<String, Object> body) {
+    public KinveyRequest setBody(HashMap<String, Object> body) {
         this.body = body;
+        return this;
     }
 
     /**

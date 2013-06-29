@@ -31,35 +31,45 @@ public class KinveyResponse {
         this.complete = complete;
     }
 
+    private KinveyResponse() {}
+
+    public static KinveyResponse initialize() {
+        return new KinveyResponse();
+    }
+
 
     public boolean isComplete() {
         return complete;
     }
 
-    public void setComplete(boolean complete) {
+    public KinveyResponse setComplete(boolean complete) {
         this.complete = complete;
+        return this;
     }
 
     public HashMap<String, Object> getHeaders() {
         return headers;
     }
 
-    public void setHeaders(HashMap<String, Object> headers) {
+    public KinveyResponse setHeaders(HashMap<String, Object> headers) {
         this.headers = headers;
+        return this;
     }
 
     public HashMap<String, Object> getBody() {
         return body;
     }
 
-    public void setBody(HashMap<String, Object> body) {
+    public KinveyResponse setBody(HashMap<String, Object> body) {
         this.body = body;
+        return this;
     }
 
-    public void setError(KinveyError error) {
+    public KinveyResponse setError(KinveyError error) {
         this.statusCode = error.getErrorCode();
         this.error = error.getErrorBody();
         this.setComplete(true);
+        return this;
     }
 
     public HashMap<String, Object> getError() {
@@ -76,9 +86,10 @@ public class KinveyResponse {
      * @param status  the new HTTP status code to use
      *
      */
-    public void setStatus(int status) {
+    public KinveyResponse setStatus(int status) {
         this.status = status;
         this.statusCode = status;
+        return this;
     }
 
     /**

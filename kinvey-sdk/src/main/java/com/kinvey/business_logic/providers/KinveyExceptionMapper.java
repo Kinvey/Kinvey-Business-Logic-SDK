@@ -34,8 +34,7 @@ public class KinveyExceptionMapper implements ExceptionMapper<Exception> {
         KinveyResponse kinveyRes = new KinveyResponse(400, false);
         kinveyRes.setError(new KinveyError.Builder().setException(exception).build());
 
-        CommandResponse commandRes = new CommandResponse();
-        commandRes.setResponse(kinveyRes);
+        CommandResponse commandRes = CommandResponse.initialize().setResponse(kinveyRes);
 
         return Response.status(Response.Status.BAD_REQUEST)
                 .type(MediaType.APPLICATION_JSON)

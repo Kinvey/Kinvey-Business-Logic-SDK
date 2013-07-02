@@ -21,7 +21,7 @@
         </servlet-class>
         <init-param>
             <param-name>com.sun.jersey.spi.container.ContainerRequestFilters</param-name>
-            <param-value>com.sun.jersey.api.container.filter.LoggingFilter</param-value>
+            <param-value>com.sun.jersey.api.container.filter.LoggingFilter;com.kinvey.business_logic.interceptors.KinveyAuthInterceptor</param-value>
         </init-param>
         <init-param>
             <param-name>com.sun.jersey.spi.container.ContainerResponseFilters</param-name>

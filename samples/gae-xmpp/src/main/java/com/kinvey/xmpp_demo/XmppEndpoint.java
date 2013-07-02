@@ -7,7 +7,7 @@ import javax.ws.rs.*;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
-@Path("/ExternalBL/{command}")
+@Path("/ExternalBLCollection/{command}")
 @Consumes("application/json")
 @Produces("application/json")
 public class XmppEndpoint {
@@ -16,39 +16,37 @@ public class XmppEndpoint {
 
     @POST
     public CommandResponse handleBLRequest(@PathParam("command") String command, Request<CollectionArguments> request){
-        if (command.equals("pre")){
-            throw new RuntimeException("Fail");
+        if (command.equals("post")){
+            throw new RuntimeException("This BL does not support after hooks");
+
+        } else {
+
+            KinveyRequest req = request.getArguments().getKinveyRequest();
+            KinveyResponse res = request.getArguments().getKinveyResponse();
+            HashMap<String, Object> body = req.getBody();
+
+            String userEmail = body.get("user").toString();
+            String message = body.get("message").toString();
+            String reqId = request.getArguments().getRequestId();
+            String from = "";
+
+            if (body.containsKey("from")){
+                from = body.get("from").toString();
+            }
+
+            LOGGER.info("Kinvey Request ID: " + reqId);
+
+            pingUser(userEmail, from, message + "(Req ID: " + reqId + ")");
+            HashMap<String, Object> resBody = res.getBody();
+            resBody.put("result", pingUser(userEmail, from, message));
+            res.setBody(resBody);
+
+            return CommandResponse.initialize(req, res);
         }
-
-        KinveyRequest req = request.getArguments().getKinveyRequest();
-        KinveyResponse res = request.getArguments().getKinveyResponse();
-        HashMap<String, Object> body = req.getBody();
-
-
-
-
-        String userEmail = body.get("user").toString();
-        String message = body.get("message").toString();
-        String reqId = request.getArguments().getRequestId();
-        String from = "";
-
-        if (body.containsKey("from")){
-            from = body.get("from").toString();
-        }
-
-        LOGGER.info("Kinvey Request ID: " + reqId);
-
-        pingUser(userEmail, from, message + "(Req ID: " + reqId + ")");
-
-        CommandResponse commandResponse = new CommandResponse();
-        commandResponse.setRequest(req);
-        commandResponse.setResponse(res);
-
-        return commandResponse;
     }
 
 
-    void pingUser(String user, String fromUser, String message){
+    boolean pingUser(String user, String fromUser, String message){
         JID jid = new JID(user);
         Message msg;
 
@@ -75,7 +73,8 @@ public class XmppEndpoint {
             LOGGER.warning("Message failed :-(");
         }
 
-    }
+        return messageSent;
 
+    }
 
 }

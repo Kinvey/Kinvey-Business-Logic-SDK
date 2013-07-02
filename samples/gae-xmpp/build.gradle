@@ -53,11 +53,11 @@ gae {
     downloadSdk = true
 
     appcfg {
-        email = 'your.email@here.com' // !!! TODO: Configure this prior to deploying
+        email = 'mjsalinger@kinvey.com' // !!! TODO: Configure this prior to deploying
         passIn = true
 
         app {
-            id = 'your-app-id-here' // !!! TODO: Configure this prior to deploying
+            id = 'kinvey-gae-test-1' // !!! TODO: Configure this prior to deploying
         }
     }
 }

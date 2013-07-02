@@ -29,17 +29,13 @@ public class SimpleTest {
         HashMap<String, Object> output = new HashMap<String, Object>();
         output.put("made_request", reqId);
 
-        res.setStatus(200);
-        res.setBody(output);
-        res.setComplete(true);
-
-        CommandResponse commandResponse = new CommandResponse();
-        commandResponse.setRequest(req);
-        commandResponse.setResponse(res);
+        res.setStatus(200)
+                .setBody(output)
+                .setComplete(true);
 
         // LOGGER.info("Sending back: " + commandResponse);
         LOGGER.info("Finished.");
-        return commandResponse;
+        return CommandResponse.initialize(req, res);
     }
 
 

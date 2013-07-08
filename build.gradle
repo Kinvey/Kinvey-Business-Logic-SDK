@@ -10,9 +10,16 @@ subprojects {
     }
 
     dependencies {
-        compile group:'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.2.1'
-        compile group:'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.2.1'
-        compile group:'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.2.1'
+        compile 'javax.ws.rs:jsr311-api:1.1.1'
+        compile 'com.google.guava:guava:r09'
+        compile 'com.sun.jersey:jersey-server:1.17.1'
+        compile 'com.sun.jersey:jersey-core:1.17.1'
+        compile 'com.sun.jersey:jersey-servlet:1.17.1'
+        compile 'com.sun.jersey:jersey-json:1.17.1'
+        compile 'com.fasterxml.jackson.core:jackson-core:2.2.1'
+        compile 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.2.1'
+        compile 'com.fasterxml.jackson.core:jackson-databind:2.2.1'
+        compile 'com.fasterxml.jackson.core:jackson-annotations:2.2.1'
         compile 'commons-io:commons-io:2.4'
 
         testCompile 'junit:junit:4.11'

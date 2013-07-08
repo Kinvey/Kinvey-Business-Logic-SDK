@@ -102,15 +102,11 @@
  <pre><code class="lang-java">Query ageRangeQuery = new Query();
  ageRangeQuery.greaterThanEqualTo(&quot;age&quot;, 18);
  ageRangeQuery.lessThanEqualTo(&quot;age&quot;, 35);</code></pre>
- <p><div class='warning callout'>
 
- </p>
- <p>Certain non-logical query conditions will not be accepted by the query engine.  For example, querying the same field for both = and &gt; would result in only the second condition being executed (&gt;).
+ <div class='warning callout'>
+ Certain non-logical query conditions will not be accepted by the query engine.  For example, querying the same field for both = and &gt; would result in only the second condition being executed (&gt;).
+ </div>
 
- </p>
- <p></div>
-
- </p>
  <h5><a id="JoiningOperators" href="#JoiningOperators">Joining Operators</a></h5>
  <p>You can also combine queries using boolean operators <code>or</code> and <code>and</code>.
 

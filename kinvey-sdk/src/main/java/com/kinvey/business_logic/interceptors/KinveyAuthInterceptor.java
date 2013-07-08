@@ -1,7 +1,7 @@
 package com.kinvey.business_logic.interceptors;
 
-import com.google.api.client.util.Base64;
 import com.kinvey.business_logic.KinveyAuthCredentials;
+import com.sun.jersey.core.util.Base64;
 import com.sun.jersey.spi.container.ContainerRequest;
 import com.sun.jersey.spi.container.ContainerRequestFilter;
 
@@ -17,15 +17,16 @@ public class KinveyAuthInterceptor implements ContainerRequestFilter {
         private String password;
 
         void parseHeader(String header){
-            try {
-                String bytes = new String(Base64.decodeBase64(header.replaceFirst("[Bb]asic ", "")), "UTF-8");
+//            try {
+//
+                String bytes = Base64.base64Decode(header.replaceFirst("[Bb]asic ", ""));
                 String[] tmp = bytes.split(":");
                 username = tmp[0];
                 password = tmp[1];
-            } catch (UnsupportedEncodingException ee){
-                username = "";
-                password = "";
-            }
+//            } catch (UnsupportedEncodingException ee){
+//                username = "";
+//                password = "";
+//            }
         }
 
         public AuthCredentials(String authHeader){

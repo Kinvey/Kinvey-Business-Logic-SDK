@@ -5,10 +5,9 @@
 		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
            version="2.5">
 
-    <display-name>Kinvey External Business Logic Google App Engine XMPP Demo</display-name>
+    <display-name>Kinvey External Business Logic Quickstart</display-name>
     <servlet>
-
-        <servlet-name>k-GAE-XMPP</servlet-name>
+        <servlet-name>k-ca</servlet-name>
         <servlet-class>
             com.sun.jersey.spi.container.servlet.ServletContainer
         </servlet-class>
@@ -26,13 +25,13 @@
         </init-param>
         <init-param>
             <param-name>com.sun.jersey.config.property.packages</param-name>
-            <param-value>com.fasterxml.jackson.jaxrs;com.kinvey.xmpp_demo</param-value>
+            <param-value>com.fasterxml.jackson.jaxrs;com.kinvey.collection_access</param-value>
         </init-param>
 
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>k-GAE-XMPP</servlet-name>
+        <servlet-name>k-ca</servlet-name>
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
 </web-app>

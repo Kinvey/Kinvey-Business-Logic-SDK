@@ -3,6 +3,7 @@ apply plugin: 'idea'
 subprojects {
     apply plugin: 'java'
     apply plugin: 'idea'
+    apply plugin: 'eclipse'
 
     repositories {
         mavenCentral()
@@ -18,7 +19,7 @@ subprojects {
     }
 
     group = 'com.kinvey'
-    version = '0.1-SNAPSHOT'
+    version = '0.1.0'
 
     // Checkstyle
     apply plugin: 'checkstyle'

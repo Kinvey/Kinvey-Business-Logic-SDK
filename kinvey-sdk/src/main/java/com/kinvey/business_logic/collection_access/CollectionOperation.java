@@ -11,7 +11,7 @@ public enum CollectionOperation {
     DISTINCT("distinct"),
     UPDATE("update"),
     COUNT("count"),
-    GROUP("group"),
+//    GROUP("group"),
     GEO_NEAR("geoNear");
 
     private final String endPoint;

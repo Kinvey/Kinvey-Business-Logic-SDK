@@ -1,0 +1,30 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'eu.appsatori:gradle-fatjar-plugin:0.2-rc1'
+    }
+}
+
+apply plugin: 'war'
+apply plugin: 'jetty'
+apply plugin: 'fatjar'
+
+
+dependencies {
+    compile project(':kinvey-sdk')
+    compile 'javax.ws.rs:jsr311-api:1.1.1'
+    compile 'com.sun.jersey:jersey-server:1.17.1'
+    compile 'com.sun.jersey:jersey-core:1.17.1'
+    compile 'com.sun.jersey:jersey-servlet:1.17.1'
+    compile 'com.sun.jersey:jersey-json:1.17.1'
+    compile 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.2.1'
+    providedCompile 'javax.servlet:servlet-api:2.5'
+}
+
+httpPort = 8080
+
+war {
+}

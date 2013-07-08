@@ -1,1 +1,1 @@
-include "kinvey-sdk", "samples:gae-xmpp", "samples:quickstart"
+include "kinvey-sdk", "samples:gae-xmpp", "samples:quickstart", "samples:collection-access"

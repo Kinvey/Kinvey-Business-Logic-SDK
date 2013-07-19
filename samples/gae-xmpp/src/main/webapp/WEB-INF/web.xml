@@ -14,9 +14,9 @@
     <!--<filter-name>CheckAuthKeyFilter</filter-name>-->
     <!--<url-pattern>/*</url-pattern>-->
     <!--</filter-mapping>-->
-    <!--<listener>
+    <listener>
         <listener-class>com.kinvey.xmpp_demo.AppConfiguration</listener-class>
-    </listener>-->
+    </listener>
     <servlet>
 
         <servlet-name>k-GAE-XMPP</servlet-name>
@@ -37,8 +37,9 @@
         </init-param>
         <init-param>
             <param-name>com.sun.jersey.config.property.packages</param-name>
-            <param-value>com.fasterxml.jackson.jaxrs;com.kinvey.xmpp_demo</param-value>
+            <param-value>com.fasterxml.jackson.jaxrs;com.kinvey.xmpp_demo;com.kinvey.business_logic.providers</param-value>
         </init-param>
+
 
         <load-on-startup>1</load-on-startup>
     </servlet>

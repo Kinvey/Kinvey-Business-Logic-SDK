@@ -1,7 +1,20 @@
-dependencies {
-    compile 'com.google.http-client:google-http-client:1.15.0-rc'
-    compile 'com.google.http-client:google-http-client-jackson2:1.15.0-rc'
-    compile 'com.google.guava:guava:r09'
-    compile 'com.sun.jersey:jersey-server:1.17.1'
-    compile 'com.sun.jersey:jersey-core:1.17.1'
+task generateDoclava(type: Javadoc) {
+
+    description = "Build the Doclava Javadocs"
+    source = sourceSets.main.allJava
+    options.docletpath = files("3rdParty/doclava-kinvey-custom.jar").asType(List)
+    options.doclet = "com.google.doclava.Doclava"
+    maxMemory = "1024m"
+    classpath = configurations.compile
+    destinationDir = file("${project.docsDir}/apidocs")
+
+
+    title = ""
+
+    options.addStringOption("quiet")
+    options.addStringOption("hdf", "project.name ${project.name}")
+    options.addStringOption("stubs", "${project.docsDir}/stubs")
+    options.addStringOption("apixml", "${project.docsDir}/apidocs/api.xml")
+    options.addStringOption("stubs", "${project.docsDir}/apidocs")
 }
+

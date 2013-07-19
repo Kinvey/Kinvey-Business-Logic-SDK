@@ -3,8 +3,9 @@ package com.kinvey.business_logic.collection_access;
 public enum ArgumentType {
     QUERY("query"),
     OPTIONS("options"),
-    SORT_ORDER("sortOrder"),
-    DOCUMENT("document"),
+    SORT_ORDER("sort"),
+    DOCUMENT("doc"),
+    DOCUMENTS("docs"),
     KEY("key"),
     LONGITUDE("x"),
     LATITUDE("y"),

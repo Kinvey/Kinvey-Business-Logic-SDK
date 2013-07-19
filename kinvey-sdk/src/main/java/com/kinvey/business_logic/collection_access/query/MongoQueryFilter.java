@@ -13,7 +13,6 @@
  */
 package com.kinvey.business_logic.collection_access.query;
 
-import com.google.api.client.util.Key;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -30,7 +29,7 @@ import java.util.Map;
 public class MongoQueryFilter implements QueryFilter, Serializable {
 
     private static final long serialVersionUID = 5635939847038496849L;
-    @Key
+
     private LinkedHashMap<String,Object> queryFilter;
 
     public MongoQueryFilter() {

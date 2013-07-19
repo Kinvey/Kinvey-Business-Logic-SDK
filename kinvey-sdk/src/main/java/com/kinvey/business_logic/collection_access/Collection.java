@@ -64,15 +64,15 @@ public class Collection {
      * @param sortOrder  if multiple documents match the query, the first sorted document will be updated.
      * @param document  the new document.
      * @param options  the options for the operation, see See <a href="http://mongodb.github.io/node-mongodb-native/api-generated/collection.html#findAndModify">findAndModify</a> for details.
-     * @return  the number of documents updated.
+     * @return  the Document before modification (unless post-modification is requested).
      */
-    public int findAndModify(Query query, SortOrder sortOrder, Document document, Options options) throws CollectionAccessException {
+    public Document findAndModify(Query query, SortOrder sortOrder, Document document, Options options) throws CollectionAccessException {
         MongoRequest mongoRequest = MongoRequest.performOperationOnCollection(CollectionOperation.FIND_AND_MODIFY, this)
             .setArgument(QUERY, query)
             .setArgument(SORT_ORDER, sortOrder)
             .setArgument(DOCUMENT, document)
             .setArgument(OPTIONS, options);
-        return mongoRequest.getCount();
+        return new Document(mongoRequest.getOne());
     }
 
     /***
@@ -81,14 +81,14 @@ public class Collection {
      * @param query  the Kinvey query to execute.
      * @param sortOrder the first document in the given sortOrder will be removed.
      * @param options  the options for the operation, see See <a href="http://mongodb.github.io/node-mongodb-native/api-generated/collection.html#findAndRemove">findAndRemove</a> for details.
-     * @return  the number of documents removed.
+     * @return  the Document before modification (unless post-modification is requested).
      */
-    public int findAndRemove(Query query, SortOrder sortOrder, Options options) throws CollectionAccessException {
+    public Document findAndRemove(Query query, SortOrder sortOrder, Options options) throws CollectionAccessException {
         MongoRequest mongoRequest = MongoRequest.performOperationOnCollection(CollectionOperation.FIND_AND_REMOVE, this)
             .setArgument(QUERY, query)
             .setArgument(SORT_ORDER, sortOrder)
             .setArgument(OPTIONS, options);
-        return mongoRequest.getCount();
+        return new Document(mongoRequest.getOne());
     }
 
     /***
@@ -96,12 +96,14 @@ public class Collection {
      *
      * @param document  the document to add.
      * @param options  the options for the operation, see See <a href="http://mongodb.github.io/node-mongodb-native/api-generated/collection.html#insert">insert</a> for details.
+     *
+     * @return  a list of the Documents that were inserted (with populated object ids).
      */
-    public void insert(Document document, Options options) throws CollectionAccessException {
+    public List<Document> insert(Document document, Options options) throws CollectionAccessException {
         MongoRequest mongoRequest = MongoRequest.performOperationOnCollection(CollectionOperation.INSERT, this)
-            .setArgument(DOCUMENT, document)
+            .setArgument(DOCUMENTS, document)
             .setArgument(OPTIONS, options);
-        mongoRequest.execute();
+        return Document.makeDocumentList(mongoRequest.getList());
     }
 
     /***
@@ -121,19 +123,20 @@ public class Collection {
      * Insert or update a document in the collection.
      * @param document  the document to insert or update (the _id field controls insert vs. update).
      * @param options  the options for the operation, see See <a href="http://mongodb.github.io/node-mongodb-native/api-generated/collection.html#save">save</a> for details.
+     * @return  the Document that was saved.
      */
-    public void save(Document document, Options options) throws CollectionAccessException {
+    public Document save(Document document, Options options) throws CollectionAccessException {
         MongoRequest mongoRequest = MongoRequest.performOperationOnCollection(CollectionOperation.SAVE, this)
             .setArgument(DOCUMENT, document)
             .setArgument(OPTIONS, options);
-        mongoRequest.execute();
+        return new Document(mongoRequest.getOne());
     }
 
     /***
      * Find all distinct values for the given key.
      *
      * @param key  the Key to find distinct values for.
-     * @param query
+     * @param query  a Kinvey query to filter objects.
      * @return  the list of all distinct values.
      */
     public List<Object> distinct(String key, Query query) throws CollectionAccessException {
@@ -149,13 +152,14 @@ public class Collection {
      * @param query  the Kinvey query to execute
      * @param document  the document to update the matched objects with
      * @param options  the options for the operation, see See <a href="http://mongodb.github.io/node-mongodb-native/api-generated/collection.html#update">update</a> for details.
+     * @return  the number of objects updated.
      */
-    public void update(Query query, Document document, Options options) throws CollectionAccessException {
+    public int update(Query query, Document document, Options options) throws CollectionAccessException {
         MongoRequest mongoRequest = MongoRequest.performOperationOnCollection(CollectionOperation.UPDATE, this)
             .setArgument(QUERY, query)
             .setArgument(DOCUMENT, document)
             .setArgument(OPTIONS, options);
-        mongoRequest.execute();
+        return mongoRequest.getCount();
     }
 
     /***

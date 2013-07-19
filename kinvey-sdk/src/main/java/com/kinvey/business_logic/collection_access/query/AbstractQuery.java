@@ -15,8 +15,9 @@ package com.kinvey.business_logic.collection_access.query;
 
 //import com.google.gson.Gson;
 
-import com.google.api.client.json.JsonFactory;
-import com.google.api.client.json.JsonGenerator;
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Preconditions;
 
 import java.io.Serializable;
@@ -70,15 +71,11 @@ public abstract class AbstractQuery implements Serializable{
      *
      * @return Query filter as JSon
      */
-    public String getQueryFilterJson(JsonFactory factory) {
-        Preconditions.checkNotNull(factory);
-        StringWriter writer = new StringWriter();
+    public String getQueryFilterJson(ObjectMapper mapper) {
+        Preconditions.checkNotNull(mapper);
         String jsonResult = "";
         try {
-            JsonGenerator generator = factory.createJsonGenerator(writer);
-            generator.serialize(getQueryFilterMap());
-            generator.flush();
-            jsonResult = writer.toString();
+            jsonResult = mapper.writeValueAsString(getQueryFilterMap());
         } catch (Exception ex) {}
 
         // TODO:  Put exception here?

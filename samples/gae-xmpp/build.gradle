@@ -15,13 +15,6 @@ apply plugin: 'gae'
 
 dependencies {
     compile project(':kinvey-sdk')
-    compile 'javax.ws.rs:jsr311-api:1.1.1'
-    compile 'com.sun.jersey:jersey-server:1.17.1'
-    compile 'com.sun.jersey:jersey-core:1.17.1'
-    compile 'com.sun.jersey:jersey-servlet:1.17.1'
-    compile 'com.sun.jersey:jersey-json:1.17.1'
-    compile 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.2.1'
-
     // FatJar ignores the providedCompile directive (however normal WAR exploder respects this)
     // so we need to make sure it's excluded from the WAR
     providedCompile 'com.google.appengine:appengine-api-1.0-sdk:1.8.0', {
@@ -53,11 +46,11 @@ gae {
     downloadSdk = true
 
     appcfg {
-        email = 'mjsalinger@kinvey.com' // !!! TODO: Configure this prior to deploying
+        email = 'FILL ME IN' // !!! TODO: Configure this prior to deploying
         passIn = true
 
         app {
-            id = 'kinvey-gae-test-1' // !!! TODO: Configure this prior to deploying
+            id = 'FILL ME IN' // !!! TODO: Configure this prior to deploying
         }
     }
 }

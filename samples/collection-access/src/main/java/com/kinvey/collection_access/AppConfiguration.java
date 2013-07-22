@@ -30,8 +30,8 @@ public class AppConfiguration implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         LOGGER.info("App is being configured.");
         KinveyAuthCredentials auth = KinveyAuthCredentials.getInstance();
-        auth.setAppId("kid_eVkChIXKYM");
-        auth.setMasterSecret("15a1987db36d43e7bf09bca04d86a37a");
+        auth.setAppId(" SET APP KEY HERE "); // TODO: Replace with your own app key
+        auth.setMasterSecret(" SET MASTER SECRET HERE "); // TODO: Replace with your own master secret
     }
 
     @Override

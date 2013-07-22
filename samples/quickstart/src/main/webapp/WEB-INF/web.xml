@@ -30,6 +30,9 @@
 
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <listener>
+        <listener-class>com.kinvey.quickstart.AppConfiguration</listener-class>
+    </listener>
     <servlet-mapping>
         <servlet-name>k-quickstart</servlet-name>
         <url-pattern>/*</url-pattern>

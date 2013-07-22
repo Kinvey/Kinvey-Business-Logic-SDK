@@ -46,11 +46,11 @@ gae {
     downloadSdk = true
 
     appcfg {
-        email = 'FILL ME IN' // !!! TODO: Configure this prior to deploying
+        email = ' your@email.mail ' // !!! TODO: Configure this prior to deploying
         passIn = true
 
         app {
-            id = 'FILL ME IN' // !!! TODO: Configure this prior to deploying
+            id = ' YOUR APP HERE ' // !!! TODO: Configure this prior to deploying
         }
     }
 }

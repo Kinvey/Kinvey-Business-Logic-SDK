@@ -31,13 +31,12 @@ public class AppConfiguration implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         LOGGER.info("App is being configured.");
         KinveyAuthCredentials auth = KinveyAuthCredentials.getInstance();
-        auth.setAppId("");
-        auth.setMasterSecret("");
+        auth.setAppId(" SET APP KEY HERE "); // TODO: Replace with your own app key
+        auth.setMasterSecret(" SET MASTER SECRET HERE "); // TODO: Replace with your own master secret
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        //To change body of implemented methods use File | Settings | File Templates.
     }
 
 

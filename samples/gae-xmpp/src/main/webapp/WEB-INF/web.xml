@@ -44,6 +44,9 @@
 
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <listener>
+        <listener-class>com.kinvey.xmpp_demo.AppConfiguration</listener-class>
+    </listener>
     <servlet-mapping>
         <servlet-name>k-GAE-XMPP</servlet-name>
         <url-pattern>/*</url-pattern>

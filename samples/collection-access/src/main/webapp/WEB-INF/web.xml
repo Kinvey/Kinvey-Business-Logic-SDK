@@ -27,9 +27,11 @@
             <param-name>com.sun.jersey.config.property.packages</param-name>
             <param-value>com.fasterxml.jackson.jaxrs;com.kinvey.collection_access</param-value>
         </init-param>
-
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <listener>
+        <listener-class>com.kinvey.collection_access.AppConfiguration</listener-class>
+    </listener>
     <servlet-mapping>
         <servlet-name>k-ca</servlet-name>
         <url-pattern>/*</url-pattern>

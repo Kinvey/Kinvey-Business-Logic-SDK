@@ -17,6 +17,7 @@
     <listener>
         <listener-class>com.kinvey.xmpp_demo.AppConfiguration</listener-class>
     </listener>
+
     <servlet>
 
         <servlet-name>k-GAE-XMPP</servlet-name>

@@ -1,20 +1,3 @@
-   Copyright 2013 Kinvey, inc
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
-
-
-
-
                                  Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/
@@ -192,27 +175,229 @@
 
    END OF TERMS AND CONDITIONS
 
-   APPENDIX: How to apply the Apache License to your work.
 
-      To apply the Apache License to your work, attach the following
-      boilerplate notice, with the fields enclosed by brackets "[]"
-      replaced with your own identifying information. (Don't include
-      the brackets!)  The text should be enclosed in the appropriate
-      comment syntax for the file format. We also recommend that a
-      file or class name and description of purpose be included on the
-      same "printed page" as the copyright notice for easier
-      identification within third-party archives.
+Summary:
 
-   Copyright [yyyy] [name of copyright owner]
+* Gradle 1.6 [apache-2.0] - used for building the software (we have plug-ins as dependencies)
+* jackson-core-2.2.1 [apache-2.0] - used for JSON marshaling
+* jackson-jaxrs-json-provider-2.2.1 [apache-2.0] - used for JSON marshaling
+* jackson-databind-2.2.1 [apache-2.0] - used for JSON marshaling
+* jackson-annotations-2.2.1 [apache-2.0] - used for JSON marshaling
+* commons-io-2.4 [apache-2.0] - used for unit testing
+* gradle-gae-plugin-0.8 [apache-2.0] - used for downloading and building GAE apps through gradle
+* jsr311-api-1.1.1 [CDDL-1.0] - used for JAX-RS support
+* servlet-api-2.5 [CDDL-1.0] - used for servlet feature support
+* jersey-server-1.17.1 [CDDL-1.1] - used for REST/JAX-RS support
+* jersey-core-1.17.1 [CDDL-1.1] - used for REST/JAX-RS support
+* jersey-servlet-1.17.1 [CDDL-1.1] - used for REST/JAX-RS support
+* jersey-json-1.17.1 [CDDL-1.1] - used for REST/JAX-RS support
+* junit-4.11 [EPL-1.0] - used for unit testing
+* appengine-api-1.0-sdk-1.8.0 [Propritary] - Used for Google App Engine samples
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+SECTION 1: Apache License, V2.0
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+   >>> Gradle-1.6
+   >>> jackson-core-2.2.1
+   >>> jackson-jaxrs-json-provider-2.2.1
+   >>> jackson-databind-2.2.1
+   >>> jackson-annotations-2.2.1
+   >>> commons-io-2.4
+   >>> gradle-gae-plugin-0.8
+
+
+SECTION 2: Common Development and Distribution License (CDDL-1.0)
+
+   >>> jsr311-api-1.1.1
+   >>> servlet-api-2.5
+
+SECTION 3: Common Development and Distribution License (CDDL-1.1)
+
+   >>> jersey-server-1.17.1
+   >>> jersey-core-1.17.1
+   >>> jersey-servlet-1.17.1
+   >>> jersey-json-1.17.1
+
+SECTION 4: Eclipse Public License - v 1.0
+
+   >>> junit-4.11
+
+SECTION 5: Google App Engine Propritary
+
+   >>> appengine-api-1.0-sdk-1.8.0
+
+--------------- SECTION 1: Apache License, V2.0 ----------
+
+Apache License, V2.0 is applicable to the following component(s).
+
+>>> Gradle-1.6
+
+Copyright 2012 the original author or authors.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+>>> jackson-core-2.2.1
+>>> jackson-jaxrs-json-provider-2.2.1
+>>> jackson-databind-2.2.1
+>>> jackson-annotations-2.2.1
+
+Jackson JSON-processor.
+
+Copyright (c) 2007- Tatu Saloranta, tatu.saloranta@iki.fi
+
+>>> commons-io-2.4
+
+Apache Commons IO
+Copyright 2002-2013 The Apache Software Foundation
+
+This product includes software developed at
+The Apache Software Foundation (http://www.apache.org/).
+
+>>> gradle-gae-plugin-0.8
+
+Copyright 2011 the original author or authors.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+
+--------------- SECTION 2: Common Development and Distribution License, V1.0 ----------
+
+Common Development and Distribution License, V1.0 is applicable to the following component(s).
+
+>>> jsr311-api-1.1.1
+
+The contents of this file are subject to the terms
+of the Common Development and Distribution License
+(the "License").  You may not use this file except
+in compliance with the License.
+
+You can obtain a copy of the license at
+http://www.opensource.org/licenses/cddl1.php
+See the License for the specific language governing
+permissions and limitations under the License.
+
+>>> servlet-api-2.5
+
+The contents of this file are subject to the terms
+of the Common Development and Distribution License
+(the "License").  You may not use this file except
+in compliance with the License.
+
+You can obtain a copy of the license at
+glassfish/bootstrap/legal/CDDLv1.0.txt or
+https://glassfish.dev.java.net/public/CDDLv1.0.html.
+See the License for the specific language governing
+permissions and limitations under the License.
+
+When distributing Covered Code, include this CDDL
+HEADER in each file and include the License file at
+glassfish/bootstrap/legal/CDDLv1.0.txt.  If applicable,
+add the following below this CDDL HEADER, with the
+fields enclosed by brackets "[]" replaced with your
+own identifying information: Portions Copyright [yyyy]
+[name of copyright owner]
+
+Copyright 2005 Sun Microsystems, Inc. All rights reserved.
+
+Portions Copyright Apache Software Foundation.
+
+--------------- SECTION 3: Common Development and Distribution License, V1.1 ----------
+
+Common Development and Distribution License, V1.1 is applicable to the following component(s).
+
+>>> jersey-server-1.17.1
+>>> jersey-core-1.17.1
+>>> jersey-servlet-1.17.1
+>>> jersey-json-1.17.1
+
+Copyright (c) 2010-2011 Oracle and/or its affiliates. All rights reserved.
+
+The contents of this file are subject to the terms of either the GNU
+General Public License Version 2 only ("GPL") or the Common Development
+and Distribution License("CDDL") (collectively, the "License").  You
+may not use this file except in compliance with the License.  You can
+obtain a copy of the License at
+http://glassfish.java.net/public/CDDL+GPL_1_1.html
+or packager/legal/LICENSE.txt.  See the License for the specific
+language governing permissions and limitations under the License.
+
+When distributing the software, include this License Header Notice in each
+file and include the License file at packager/legal/LICENSE.txt.
+
+GPL Classpath Exception:
+Oracle designates this particular file as subject to the "Classpath"
+exception as provided by Oracle in the GPL Version 2 section of the License
+file that accompanied this code.
+
+Modifications:
+If applicable, add the following below the License Header, with the fields
+enclosed by brackets [] replaced by your own identifying information:
+"Portions Copyright [year] [name of copyright owner]"
+
+Contributor(s):
+If you wish your version of this file to be governed by only the CDDL or
+only the GPL Version 2, indicate your decision by adding "[Contributor]
+elects to include this software in this distribution under the [CDDL or GPL
+Version 2] license."  If you don't indicate a single choice of license, a
+recipient has the option to distribute your version of this file under
+either the CDDL, the GPL Version 2 or to extend the choice of license to
+its licensees as provided above.  However, if you add GPL Version 2 code
+and therefore, elected the GPL Version 2 license, then the option applies
+only if the new code is made subject to such option by the copyright
+holder.
+
+
+--------------- SECTION 4: Eclipse Public License, V1.0 ----------
+
+Eclipse Public License, V1.0 is applicable to the following component(s).
+
+>>> junit-4.11
+
+No copyright found in the headers, code updated in 2013
+
+
+--------------- SECTION 5: Google App Engine Propritary ----------
+
+Google App Engine Propritary is applicable to the following component(s).
+
+>>> appengine-api-1.0-sdk-1.8.0
+
+#####GAE SDK (Not distributed, but required, not open source: https://developers.google.com/appengine/terms?csw=1)
+GOOGLE APP ENGINE SOFTWARE DEVELOPMENT KIT FOR JAVA LICENSE INFORMATION
+
+April 2, 2009
+
+=====
+
+The App Engine SDK is licensed to you under the Google App Engine Terms of Service (the "Terms"); you may not use this file except in compliance with the Terms.  You may obtain a copy of the Terms at
+
+    http://code.google.com/appengine/terms.html
+
+Unless required by applicable law or agreed to in writing, software distributed under the Terms is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the Terms for the specific language governing permissions and limitations under the Terms.
+
+This version of the App Engine SDK is being offered to the developer community on an "early look" basis and is "experimental" for purposes of the deprecation provisions of the Terms.  With the help of the developer community, Google will add new features to continually improve the SDK.  Once the SDK reaches a more finished form, Google intends to release most of the components under the Apache v2.0 open source license.  Use, reproduction, and distribution of any components of the App Engine SDK that are now or in the future released by Google under an open source software license shall be governed solely by the terms of that open source software license.
+
+=====
+
+NB: The App Engine SDK is available under the Apache 2.0 license from https://code.google.com/p/googleappengine/
+    However, the distributed zip file is licensed as above.

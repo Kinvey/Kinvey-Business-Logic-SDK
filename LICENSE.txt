@@ -382,7 +382,6 @@ Google App Engine Propritary is applicable to the following component(s).
 
 >>> appengine-api-1.0-sdk-1.8.0
 
-#####GAE SDK (Not distributed, but required, not open source: https://developers.google.com/appengine/terms?csw=1)
 GOOGLE APP ENGINE SOFTWARE DEVELOPMENT KIT FOR JAVA LICENSE INFORMATION
 
 April 2, 2009

@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * The arguments passed to a {@link Request} that's modifying a collection request.
  */
-@JsonIgnoreProperties("blScript")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CollectionArguments {
 
     private KinveyResponse kinveyResponse;

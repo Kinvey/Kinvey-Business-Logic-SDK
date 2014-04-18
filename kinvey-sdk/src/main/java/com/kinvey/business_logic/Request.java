@@ -13,13 +13,14 @@
  */
 package com.kinvey.business_logic;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 /**
  * An incoming request from Kinvey.
  *
  * @param <T>  the type specifier for the arguments of this request.
  *
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Request<T> {
 
     /**

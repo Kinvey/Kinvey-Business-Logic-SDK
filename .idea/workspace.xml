@@ -110,7 +110,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="66" selection-start="1604" selection-end="1622" vertical-scroll-proportion="-11.962963">
+            <state line="35" column="66" selection-start="1604" selection-end="1622" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -131,10 +131,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KinveyRequest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="KinveyRequest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kinvey-sdk/src/main/java/com/kinvey/business_logic/KinveyRequest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="710" selection-end="710" vertical-scroll-proportion="0.11867089">
+            <state line="22" column="0" selection-start="761" selection-end="804" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -142,19 +142,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Request.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/kinvey-sdk/src/main/java/com/kinvey/business_logic/Request.java">
+      <file leaf-file-name="CommandResponse.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kinvey-sdk/src/main/java/com/kinvey/business_logic/CommandResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="13" selection-start="758" selection-end="758" vertical-scroll-proportion="0.0">
+            <state line="23" column="13" selection-start="830" selection-end="830" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppConfiguration.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/samples/gae-xmpp/src/main/java/com/kinvey/xmpp_demo/AppConfiguration.java">
+      <file leaf-file-name="CollectionArguments.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kinvey-sdk/src/main/java/com/kinvey/business_logic/CollectionArguments.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="13" selection-start="856" selection-end="856" vertical-scroll-proportion="0.0">
+            <state line="16" column="0" selection-start="626" selection-end="687" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Request.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/kinvey-sdk/src/main/java/com/kinvey/business_logic/Request.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="61" selection-start="686" selection-end="686" vertical-scroll-proportion="0.0726979">
               <folding />
             </state>
           </provider>
@@ -172,6 +183,8 @@
       <list>
         <option value="$PROJECT_DIR$/samples/gae-xmpp/src/main/java/com/kinvey/xmpp_demo/XmppEndpoint.java" />
         <option value="$PROJECT_DIR$/kinvey-sdk/src/main/java/com/kinvey/business_logic/KinveyRequest.java" />
+        <option value="$PROJECT_DIR$/kinvey-sdk/src/main/java/com/kinvey/business_logic/CollectionArguments.java" />
+        <option value="$PROJECT_DIR$/kinvey-sdk/src/main/java/com/kinvey/business_logic/Request.java" />
       </list>
     </option>
   </component>
@@ -281,14 +294,14 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="preferences.sourceCode" />
+    <property name="MemberChooser.sorted" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -527,7 +540,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="66" selection-start="1604" selection-end="1622" vertical-scroll-proportion="-11.962963">
+        <state line="35" column="66" selection-start="1604" selection-end="1622" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -545,19 +558,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kinvey-sdk/src/main/java/com/kinvey/business_logic/Request.java">
+    <entry file="file://$PROJECT_DIR$/kinvey-sdk/src/main/java/com/kinvey/business_logic/KinveyRequest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="13" selection-start="758" selection-end="758" vertical-scroll-proportion="0.0">
+        <state line="22" column="0" selection-start="761" selection-end="804" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kinvey-sdk/src/main/java/com/kinvey/business_logic/CommandResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="13" selection-start="830" selection-end="830" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/kinvey-sdk/src/main/java/com/kinvey/business_logic/KinveyRequest.java">
+    <entry file="file://$PROJECT_DIR$/kinvey-sdk/src/main/java/com/kinvey/business_logic/CollectionArguments.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="710" selection-end="710" vertical-scroll-proportion="0.11867089">
+        <state line="16" column="0" selection-start="626" selection-end="687" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kinvey-sdk/src/main/java/com/kinvey/business_logic/Request.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="61" selection-start="686" selection-end="686" vertical-scroll-proportion="0.0726979">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -14,10 +14,13 @@
 package com.kinvey.business_logic;
 
 import java.util.HashMap;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 /**
  *  An "internal" Kinvey Request object.
  */
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class KinveyRequest {
     private String method;
     private String username;

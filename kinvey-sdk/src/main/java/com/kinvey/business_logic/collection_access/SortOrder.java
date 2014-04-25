@@ -15,5 +15,6 @@ package com.kinvey.business_logic.collection_access;
 
 import java.util.ArrayList;
 
+@Deprecated
 public class SortOrder extends ArrayList<ArrayList<Object>>{
 }

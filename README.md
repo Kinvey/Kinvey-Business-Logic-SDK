@@ -1,5 +1,8 @@
 This is the **BETA** SDK for Kinvey's external Business Logic.
 
+NOTE:  The CollectionAccess component of this SDK has been deprecated and will be removed soon.
+If you need access to the Kinvey data store, please use the [Java SDK](http://devcenter.kinvey.com/java/)
+
 ###LICENSE
 
 

@@ -13,6 +13,7 @@
  */
 package com.kinvey.business_logic.collection_access;
 
+@Deprecated
 public enum ArgumentType {
     QUERY("query"),
     OPTIONS("options"),

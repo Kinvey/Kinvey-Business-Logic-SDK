@@ -26,6 +26,7 @@ import java.util.Map;
  * @author mjsalinger
  * @since 2.0
  */
+@Deprecated
 public class MongoQueryFilter implements QueryFilter, Serializable {
 
     private static final long serialVersionUID = 5635939847038496849L;

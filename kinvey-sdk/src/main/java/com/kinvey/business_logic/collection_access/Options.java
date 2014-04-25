@@ -14,6 +14,6 @@
 package com.kinvey.business_logic.collection_access;
 
 import java.util.HashMap;
-
+@Deprecated
 public class Options extends HashMap<String, Object> {
 }

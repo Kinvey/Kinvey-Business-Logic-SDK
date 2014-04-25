@@ -24,7 +24,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-
+@Deprecated
 public class MongoRequest {
 
     private static ObjectMapper OBJECT_MAPPER = new ObjectMapper();

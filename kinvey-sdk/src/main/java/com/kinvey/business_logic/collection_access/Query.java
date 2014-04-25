@@ -27,6 +27,7 @@ import java.io.Serializable;
  * @author mjsalinger
  * @since 2.0
  */
+@Deprecated
 public class Query extends AbstractQuery implements Serializable {
 
     private static final long serialVersionUID = 5635939847038496849L;

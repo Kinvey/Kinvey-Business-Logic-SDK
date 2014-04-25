@@ -33,6 +33,7 @@ import com.kinvey.business_logic.collection_access.query.QueryFilter.QueryFilter
  * @author mjsalinger
  * @since 2.0
  */
+@Deprecated
 public abstract class AbstractQuery implements Serializable{
 
     private static final long serialVersionUID = 5635939847038496849L;

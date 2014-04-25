@@ -1,5 +1,6 @@
 package com.kinvey.business_logic.collection_access;
 
+@Deprecated
 public enum CollectionOperation {
     FIND("find"),
     FIND_ONE("findOne"),

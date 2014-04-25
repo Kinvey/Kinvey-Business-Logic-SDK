@@ -15,6 +15,7 @@ package com.kinvey.business_logic.collection_access;
 
 import java.io.IOException;
 
+@Deprecated
 public class CollectionAccessException extends IOException {
 
     public CollectionAccessException(String message){

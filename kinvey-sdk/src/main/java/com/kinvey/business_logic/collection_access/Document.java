@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+@Deprecated
 public class Document extends HashMap<String, Object> {
     public static List<Document> makeDocumentList(List<HashMap<String, Object>> list) {
         List<Document> output = new ArrayList<Document>();

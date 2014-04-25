@@ -23,6 +23,7 @@ import static com.kinvey.business_logic.collection_access.ArgumentType.*;
  *
  * @see <a href="http://devcenter.kinvey.com/reference/business-logic/reference.html#collection-access-module">Collection Access</a>
  */
+@Deprecated
 public class Collection {
 
     protected String collectionName;

@@ -19,6 +19,7 @@ import java.util.LinkedHashMap;
 /**
  * A mechanism to filter resultsets within a query
  */
+@Deprecated
 public interface QueryFilter {
 
     /**

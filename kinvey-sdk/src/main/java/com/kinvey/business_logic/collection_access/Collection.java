@@ -119,6 +119,22 @@ public class Collection {
             .setArgument(OPTIONS, options);
         return Document.makeDocumentList(mongoRequest.getList());
     }
+    
+    
+    /***
+     * Add a list of documents into the collection.
+     *
+     * @param documents  the list of documents to add.
+     * @param options  the options for the operation, see See <a href="http://mongodb.github.io/node-mongodb-native/api-generated/collection.html#insert">insert</a> for details.
+     *
+     * @return  a list of the Documents that were inserted (with populated object ids).
+     */
+    public List<Document> insert(List<Document> documents, Options options) throws CollectionAccessException {
+        MongoRequest mongoRequest = MongoRequest.performOperationOnCollection(CollectionOperation.INSERT, this)
+        .setArgument(DOCUMENTS, documents)
+        .setArgument(OPTIONS, options);
+        return Document.makeDocumentList(mongoRequest.getList());
+    }
 
     /***
      * Remove all documents matching the query from the collection.

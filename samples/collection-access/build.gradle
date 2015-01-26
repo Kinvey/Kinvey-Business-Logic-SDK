@@ -4,7 +4,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'org.gradle.api.plugins:gradle-gae-plugin:0.8'
+        classpath 'org.gradle.api.plugins:gradle-gae-plugin:0.9'
     }
 }
 
@@ -16,7 +16,7 @@ dependencies {
     compile project(':kinvey-sdk')
     // FatJar ignores the providedCompile directive (however normal WAR exploder respects this)
     // so we need to make sure it's excluded from the WAR
-    providedCompile 'com.google.appengine:appengine-api-1.0-sdk:1.8.0', {
+    providedCompile 'com.google.appengine:appengine-api-1.0-sdk:1.9.17', {
         ext {
             fatJarExclude = true
         }
@@ -28,7 +28,7 @@ dependencies {
         }
     }
 
-    gaeSdk 'com.google.appengine:appengine-java-sdk:1.8.0'
+    gaeSdk 'com.google.appengine:appengine-java-sdk:1.9.17'
 
 }
 
@@ -49,7 +49,7 @@ gae {
         passIn = true
 
         app {
-            id = ' YOUR APP HERE ' // !!! TODO: Configure this prior to deploying
+            id = ' YOUR PROJECT ID HERE ' // !!! TODO: Configure this prior to deploying
         }
     }
 }

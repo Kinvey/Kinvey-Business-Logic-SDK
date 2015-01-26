@@ -53,7 +53,7 @@ gae {
         passIn = true
 
         app {
-            id = ' YOUR APP HERE ' // !!! TODO: Configure this prior to deploying
+            id = ' YOUR PROJECT ID HERE ' // !!! TODO: Configure this prior to deploying
         }
     }
 }

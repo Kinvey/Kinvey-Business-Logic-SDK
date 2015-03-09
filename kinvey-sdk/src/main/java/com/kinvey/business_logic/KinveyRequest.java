@@ -14,8 +14,7 @@
 package com.kinvey.business_logic;
 
 import java.util.HashMap;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 /**
  *  An "internal" Kinvey Request object.
  */
